@@ -1,0 +1,20 @@
+baseurl                 = "/"               # Your domain name. Must end with "/"
+languageCode            = "en-us"
+title                   = "Blockfreight + Open Source = ❤️"
+publishDir              = "docs"
+# googleAnalytics       = "xxx"             # Tracking code, eg. "UA-111111111-1"
+
+[params]
+    dateform            = "Mon Aug 03, 2018"
+    dateformfull        = "Mon Aug 03 2018 12:46:05 EST"
+    favicon             = "/"
+    homepage            = "main"                        # What to call
+
+# Metadata
+    description         = "Blockfreight™ the blockchain of global freight."            # Max 160 characters show in search results
+    twitterCard         = "summary_large_image"         # Card value “summary”, “summary_large_image”, “app”, or “player”
+    primaryImage        = "/blockfreight.png"                     # Image that shows on Twitter cards and OpenGraph links
+
+[[params.mainMenu]]
+    link = "/#features"
+    text = "features"
