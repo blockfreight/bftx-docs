@@ -674,7 +674,7 @@
 const axios = require('axios')
 
 function createBlockfreightTransaction() {
-    axios.post("http://localhost:8080/bftx-api", { "query": "mutation{constructBFTX(Properties:{ DescOfGoods:\"This isdsada the goods description.\" Shipper:\"shipper\" }){ Id }}" })
+    axios.post("http://localhost:8080/bftx-api", { "query": "mutation{constructBFTX(Properties:{ DescOfGoods:\"This is a test description.\" Shipper:\"shipper\" }){ Id }}" })
         .then(function (response) {
             console.log(response.data);
         })
@@ -684,6 +684,49 @@ function createBlockfreightTransaction() {
 }
 
 module.exports = createBlockfreightTransaction()
+
+
+/* Response: 
+{ data:
+    { constructBFTX:
+       { Id: '#BLOCKFREIGHT_TRANSACTION_ID' } 
+    } 
+}*/
+                                  </code>
+                                </pre>
+                               </div>
+                            </div>
+                         </div>
+                         <div class="code-go code-div">
+                            <div class="method-example-part">
+                               <div class=" language-undefined">
+                                  <pre class=" language-go">
+                                    <code class=" language-go">
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    res, err := http.PostForm("http://localhost:8080/bftx-api",
+        url.Values{"query": {"mutation{constructBFTX(Properties:{ DescOfGoods:\"This is a test description.\" Shipper:\"shipper\" }){ Id }}"}})
+
+    if err != nil {
+        log.Fatal(err)
+    }
+    bftxResult, err := ioutil.ReadAll(res.Body)
+    res.Body.Close()
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("%s", bftxResult)
+}
+                                        
 
 
 /* Response: 
@@ -933,6 +976,47 @@ module.exports = signBlockfreightTransaction()
                                        </div>
                                     </div>
                                  </div>
+                                 <div class="code-go code-div">
+                                    <div class="method-example-part">
+                                       <div class=" language-undefined">
+                                          <pre class=" language-go">
+                                            <code class=" language-go">
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    res, err := http.PostForm("http://localhost:8080/bftx-api",
+        url.Values{"query": {"mutation{signBFTX(Id: \"#BLOCKFREIGHT_TRANSACTION_ID\"){ Id }}"}})
+
+    if err != nil {
+        log.Fatal(err)
+    }
+    bftxResult, err := ioutil.ReadAll(res.Body)
+    res.Body.Close()
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("%s", bftxResult)
+}
+
+/* Response: 
+{ data:
+    { signBFTX:
+        { Id: '#BLOCKFREIGHT_TRANSACTION_ID' } 
+    } 
+}*/
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1170,6 +1254,54 @@ module.exports = broadcastBlockfreightTransaction()
                                    </div>
                                 </div>
                              </div>
+                             <div class="code-go code-div">
+                                <div class="method-example-part">
+                                   <div class=" language-undefined">
+                                      <pre class=" language-go">
+                                        <code class=" language-go">
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    res, err := http.PostForm("http://localhost:8080/bftx-api",
+        url.Values{"query": {"mutation{broadcastBFTX(Id: \"#BLOCKFREIGHT_TRANSACTION_ID\"){ Id Properties{DescOfGoods} }}"}})
+
+    if err != nil {
+        log.Fatal(err)
+    }
+    bftxResult, err := ioutil.ReadAll(res.Body)
+    res.Body.Close()
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("%s", bftxResult)
+}
+                                            
+
+/* Response: 
+{
+    "data":{
+        "broadcastBFTX":{
+            "Id":"#BLOCKFREIGHT_TRANSACTION_ID",
+            "Properties":{
+                "DescOfGoods":"This is a test description."
+            }
+        }
+    }
+}
+*/
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </section>
@@ -1394,7 +1526,7 @@ module.exports = getBlockfreightTransaction()
     "tx":[{
             "Id":"#BLOCKFREIGHT_TRANSACTION_ID",
             "Properties":{
-                "DescOfGoods":"This isdsada the goods description."
+                "DescOfGoods":"This is a test description."
             }
         }]
     }
@@ -1405,6 +1537,65 @@ module.exports = getBlockfreightTransaction()
                                    </div>
                                 </div>
                              </div>
+                             <div class="code-go code-div">
+                                <div class="method-example-part">
+                                   <div class=" language-undefined">
+                                      <pre class=" language-go">
+                                        <code class=" language-go">
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
+    "os"
+)
+
+func main() {
+    client := &http.Client{}
+
+    req, err := http.NewRequest("GET", "http://localhost:8080/bftx-api", nil)
+    if err != nil {
+        log.Print(err)
+        os.Exit(1)
+    }
+
+    q := req.URL.Query()
+    q.Add("query", `{tx: queryTransaction(id:"#BLOCKFREIGHT_TRANSACTION_ID"){Id Properties{DescOfGoods}}}`)
+    req.URL.RawQuery = q.Encode()
+
+    res, err := client.Do(req)
+
+    if err != nil {
+        log.Fatal(err)
+    }
+    bftxResult, err := ioutil.ReadAll(res.Body)
+    res.Body.Close()
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("%s", bftxResult)
+}
+                                            
+
+/* Response: 
+{
+    "data":{
+        "tx":[{
+            "Id":"#BLOCKFREIGHT_TRANSACTION_ID",
+            "Properties":{
+                "DescOfGoods":"This is a test description."
+            }
+        }]
+    }
+}
+*/
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </section>
