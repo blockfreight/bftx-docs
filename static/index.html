@@ -666,6 +666,37 @@
                                 <pre class=" language-ruby">curl -d '{ "query": "mutation{constructBFTX(Properties:{ DescOfGoods:\"This is a test description.\" }){ Id }}" }' -X POST -H "Content-Type: application/json" http://localhost:8080/bftx-api</pre>
                             </div>
                         </div>
+                        <div class="code-node code-div">
+                            <div class="method-example-part">
+                               <div class=" language-undefined">
+                                  <pre class=" language-javascript">
+                                    <code class=" language-javascript">
+const axios = require('axios')
+
+function createBlockfreightTransaction() {
+    axios.post("http://localhost:8080/bftx-api", { "query": "mutation{constructBFTX(Properties:{ DescOfGoods:\"This isdsada the goods description.\" Shipper:\"shipper\" }){ Id }}" })
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+module.exports = createBlockfreightTransaction()
+
+
+/* Response: 
+{ data:
+    { constructBFTX:
+       { Id: '#BLOCKFREIGHT_TRANSACTION_ID' } 
+    } 
+}*/
+                                  </code>
+                                </pre>
+                               </div>
+                            </div>
+                         </div>
                     </div>
                 </div>
             </section>
@@ -872,6 +903,36 @@
                                     <pre class=" language-ruby">curl -d '{ "query": "mutation{tx:signBFTX(Id:\"#BLOCKFREIGHT_TRANSACTION_ID\"){ Id }}" }' -X POST -H "Content-Type: application/json" http://localhost:8080/bftx-api</pre>
                                 </div>
                             </div>
+                            <div class="code-node code-div">
+                                    <div class="method-example-part">
+                                       <div class=" language-undefined">
+                                          <pre class=" language-javascript">
+                                            <code class=" language-javascript">
+const axios = require('axios')
+        
+function signBlockfreightTransaction() {
+    axios.post("http://localhost:8080/bftx-api", { "query": "mutation{signBFTX(Id:\"#BLOCKFREIGHT_TRANSACTION_ID\"){ Id }}" })
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+        
+module.exports = signBlockfreightTransaction()
+
+/* Response: 
+{ data:
+    { signBFTX:
+       { Id: '#BLOCKFREIGHT_TRANSACTION_ID' } 
+    } 
+}*/
+                                          </code>
+                                        </pre>
+                                       </div>
+                                    </div>
+                                 </div>
                     </div>
                 </div>
             </section>
@@ -1078,6 +1139,37 @@
                                 <pre class=" language-ruby">curl -d '{ "query": "mutation{tx: broadcastBFTX(Id:\"#BLOCKFREIGHT_TRANSACTION_ID\"){Id, Properties{ DescOfGoods } }}" }' -X POST -H "Content-Type: application/json" http://localhost:8080/bftx-api</pre>
                             </div>
                         </div>
+                        <div class="code-node code-div">
+                                <div class="method-example-part">
+                                   <div class=" language-undefined">
+                                      <pre class=" language-javascript">
+                                        <code class=" language-javascript">
+const axios = require('axios')
+
+function broadcastBlockfreightTransaction() {
+    axios.post("http://localhost:8080/bftx-api", { "query": "mutation{broadcastBFTX(Id:\"#BLOCKFREIGHT_TRANSACTION_ID\"){ Id, Properties{ DescOfGoods } }}" })
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+module.exports = broadcastBlockfreightTransaction()
+
+/* Response: 
+{ data:
+    { broadcastBFTX:
+       { Id: '#BLOCKFREIGHT_TRANSACTION_ID', Properties: [Object] } 
+    } 
+}
+*/
+                                      </code>
+                                    </pre>
+                                   </div>
+                                </div>
+                             </div>
                     </div>
                 </div>
             </section>
@@ -1277,6 +1369,42 @@
                                 <pre class=" language-ruby">curl -g 'http://localhost:8080/bftx-api' -d 'query={tx: queryTransaction(Id:"#BLOCKFREIGHT_TRANSACTION_ID"){Id Properties{DescOfGoods}}}' </pre>
                             </div>
                         </div>
+                        <div class="code-node code-div">
+                                <div class="method-example-part">
+                                   <div class=" language-undefined">
+                                      <pre class=" language-javascript">
+                                        <code class=" language-javascript">
+const axios = require('axios')
+
+function getBlockfreightTransaction() {
+    axios.get(`http://localhost:8080/bftx-api?query={tx:queryTransaction(id:"#BLOCKFREIGHT_TRANSACTION_ID"){Id Properties{DescOfGoods}}}`)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+module.exports = getBlockfreightTransaction()
+
+/* Response:
+{ 
+    "data":{
+    "tx":[{
+            "Id":"#BLOCKFREIGHT_TRANSACTION_ID",
+            "Properties":{
+                "DescOfGoods":"This isdsada the goods description."
+            }
+        }]
+    }
+}
+*/
+                                      </code>
+                                    </pre>
+                                   </div>
+                                </div>
+                             </div>
                     </div>
                 </div>
             </section>
