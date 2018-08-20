@@ -1,6 +1,4 @@
-Blockfreight™ | The blockchain of global freight. 
+Blockfreight™ | The blockchain of global freight. (API Docs)
 =================================================
-
-API Docs
 
 We are on a mission to change everything you knew about freight.
