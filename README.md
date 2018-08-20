@@ -1,4 +1,3 @@
-# docs
 Blockfreight™ | The blockchain of global freight. API Docs
 =================================================
 
