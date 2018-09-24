@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <![endif]-->
+    <!-- Mobile Specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockfreight API Docs</title>
+    <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+    <meta name="description" content="Blockfreight API Docs">
+    <meta name="author" content="Blockfreight">
+    <meta name="copyright" content="Blockfreight">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900">
+    <!-- CSS Style -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-menu.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+</head>
+
+<body id="pixxett-api">
+    <div id="page">
+        <!-- Header -->
+        <header class="header" id="header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-1 col-sm-2">
+                        <div class="mm-toggle-wrap">
+                            <div class="mm-toggle">
+                                <i class="fa fa-align-justify"></i>
+                                <span class="mm-label">Menu</span>
+                            </div>
+                        </div>
+                        <!-- Header Logo -->
+                        <a class="header__block header__brand" href="#">
+                            <h1>
+                                <img src="images/logo.png" alt="API UI logo">
+                            </h1>
+                        </a>
+                        <!-- End Header Logo -->
+                    </div>
+                    <div class="col-lg-11 col-sm-10 hidden-xs">
+                        <div class="header__nav">
+                            <div class="header__nav--left">
+                                <ul class="dx-nav-0 dx-nav-0-docs">
+                                    <li class="dx-nav-0-item ">
+                                        <a class="dx-nav-0-link" href="javascript:void(0);">Docs</a>
+                                    </li>
+                                    <li class="dx-nav-0-item dx-nav-active">
+                                        <a class="dx-nav-0-link" href="javascript:void(0);">API Reference</a>
+                                    </li>
+                                    <li class="dx-nav-0-item ">
+                                        <a class="dx-nav-0-link" href="javascript:void(0);">Support</a>
+                                    </li>
+                                </ul>
+                                <form class="header__search dx-form-search" id="siteSearch" name="search" method="get">
+                                    <label class="sr-only" for="siteQ">Enter search term</label>
+                                    <input class="dx-search-input" id="siteQ" name="q" type="search" value="" placeholder="Search">
+                                    <span class="button-search fa fa-search"></span>
+                                </form>
+                            </div>
+                            <div class="header__nav--right">
+                                <ul class="dx-nav-0 dx-nav-0-tools">
+                                    <li class="dx-nav-0-item ">
+                                        <a class="dx-nav-0-link" href="https://blockfreight.com">Dashboard</a>
+                                    </li>
+                                    <li class="dx-nav-0-item ">
+                                        <a class="dx-nav-0-link" href="https://blockfreight.com/demo">Demo</a>
+                                    </li>
+                                    <li class="dx-nav-0-item ">
+                                        <a class="dx-nav-0-link" href="https://blockfreight.com/pricing">Pricing</a>
+                                    </li>
+                                    <li class="dx-nav-0-item ">
+                                        <a class="dx-nav-0-link" href="https://blockfreight.com/contact">Contact Us</a>
+                                    </li>
+                                </ul>
+                                <div class="dx-auth-block">
+                                    <div class="dx-auth-logged-out">
+                                        <a class="dx-auth-login dx-btn dx-btn-primary" data-js="auth-btn" href="https://blockfreight.com/user" data-dxa="login,nav-click,nav-login">Log In</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end header -->
+        <!-- header service -->
+        <div class="header-section-wrapper">
+            <div class="header-section header-section-example">
+                <div id="language">
+                    <ul class="language-toggle">
+                        <li>
+                            <input type="radio" class="language-toggle-source" name="language-toggle" id="toggle-lang-curl" data-language="curl" checked="checked">
+                            <label for="toggle-lang-curl" class="language-toggle-button language-toggle-button--curl">curl</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="language-toggle-source" name="language-toggle" id="toggle-lang-ruby" data-language="ruby">
+                            <label for="toggle-lang-ruby" class="language-toggle-button language-toggle-button--ruby">Ruby</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="language-toggle-source" name="language-toggle" id="toggle-lang-python" data-language="python">
+                            <label for="toggle-lang-python" class="language-toggle-button language-toggle-button--python">Python</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="language-toggle-source" name="language-toggle" id="toggle-lang-php" data-language="php">
+                            <label for="toggle-lang-php" class="language-toggle-button language-toggle-button--php">PHP</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="language-toggle-source" name="language-toggle" id="toggle-lang-java" data-language="java">
+                            <label for="toggle-lang-java" class="language-toggle-button language-toggle-button--java">Java</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="language-toggle-source" name="language-toggle" id="toggle-lang-node" data-language="node">
+                            <label for="toggle-lang-node" class="language-toggle-button language-toggle-button--node">Node</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="language-toggle-source" name="language-toggle" id="toggle-lang-go" data-language="go">
+                            <label for="toggle-lang-go" class="language-toggle-button language-toggle-button--go">Go</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End header service -->
+        <!-- Sidebar -->
+        <div id="documenter_sidebar">
+            <div id="scrollholder" class="scrollholder">
+                <div id="scroll" class="scroll">
+                    <ol id="documenter_nav">
+                        <li>
+                            <a class="current" href="#documenter-1">
+                                <i class="fa fa-file-text-o"></i>
+                                API Reference</a>
+                        </li>
+                        <li>
+                            <a href="#documenter-3">
+                                <i class="fa fa-warning"></i>
+                                Errors
+                            </a>
+                            <ol>
+                                <li>
+                                    <a href="#documenter-3-1">Handling errors</a>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="#documenter-6">
+                                <i class="fa fa-warning"></i>
+                                Core Resources
+                            </a>
+                            <ol>
+                                <li>
+                                    <a href="#documenter-6-1">Create Transaction</a>
+                                </li>
+                                <li>
+                                    <a href="#documenter-6-2">Sign Transaction</a>
+                                </li>
+                                <li>
+                                    <a href="#documenter-6-3">Broadcast Transaction</a>
+                                </li>
+                                <li>
+                                    <a href="#documenter-6-4">Query Transaction</a>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- end sidebar -->
+        <!-- Section Background -->
+        <div id="background">
+            <div class="background-actual"></div>
+        </div>
+        <!-- End Section Background -->
+        <!-- main Content -->
+        <div id="documenter_content" class="method-area-wrapper">
+            <section id="documenter-1" class="method">
+                <div class="method-area">
+                    <div class="method-copy">
+                        <div class="method-copy-padding">
+                            <h3>API Reference</h3>
+                            <p>
+                                The Blockfreight API is organized around GraphQL. GraphQL is a query language for your API, and a server-side runtime for
+                                executing queries by using a type system you define for your data. We support cross-origin
+                                resource sharing, allowing you to interact securely with our API from a client-side web application
+                                (though you should never expose your secret API key in any public website's client-side code).
+                                JSON is returned by all API responses, including errors, which are indicated by HTTP response
+                                codes.
+                            </p>
+                            <p>
+                                Once the
+                                <a href="https://github.com/blockfreight/go-bftx#installation" target="_blank">Blockfreight node is running</a>
+                                the api will be running on
+                                <code class=" language-undefined">http://localhost:8080/bftx-api</code>. As a GraphQL API, it does not have a route for each
+                                action, request body is where the action (or mutation) must be declared.
+                            </p>
+                            <p>
+                                <img src="images/place-holder.png" alt="Image">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="method-example">
+                        <div class="method-example-part">
+                            <h5>API Reference</h5>
+                            <p>
+                                Curabitur lacinia convallis nibh,
+                                <a href="#">non cursus augue</a>. Quisque id sem id lorem porttitor efficitur in quis libero. Nullam
+                                turpis ante auctor
+                                <a href="#">purus sed</a>.
+                            </p>
+                        </div>
+                        <div class="method-example-part">
+                            <div class="method-example-endpoint">
+                                <pre class="language-none"><code class="language-none">https://examples.com</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="documenter-3" class="method">
+                <div class="method-area">
+                    <div class="method-copy">
+                        <div class="method-copy-padding">
+                            <h3 id="handling-errors">Errors</h3>
+                            <p>
+                                Blockfreight uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes
+                                in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given
+                                the information provided (e.g., a required parameter was omitted, a charge failed, etc.).
+                                Codes in the 5xx range indicate an error with Blockfreight's servers.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="method-example">
+                        <div class="method-example-part">
+                            <h5>HTTP status code summary</h5>
+                            <div class="table">
+                                <table class="table-container">
+                                    <colgroup>
+                                        <col class="col-xs-3">
+                                        <col class="col-xs-9">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th class="table-row-property">200 - ok</th>
+                                            <td class="table-row-definition">Everything worked as expected.</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-row-property">400 - bad request</th>
+                                            <td class="table-row-definition">The request was unacceptable, often due to missing a required parameter. Check
+                                                whether the request body is correct.</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-row-property">406 - not acceptable</th>
+                                            <td class="table-row-definition">The transaction has not been signed before trying to Broadcast or the transaction
+                                                has been broadcasted and it is not possible to sign it again.</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-row-property">404 - not found</th>
+                                            <td class="table-row-definition">Transaction not found.</td>
+                                        </tr>
+                                        <tr>
+                                            <tr>
+                                                <th class="table-row-property">500 - server errors</th>
+                                                <td class="table-row-definition">Something went wrong on Blockfreight's end.</td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="documenter-3-1" class="method">
+                <div class="method-area">
+                    <div class="method-copy">
+                        <div class="method-copy-padding">
+                            <h3>handling errors</h3>
+                            <p>in laoreet dapibus ante vitae placerat. pellentesque mollis sapien nec sapien
+                                <code>.table</code>
+                                elementum
+                                <code>&lt;table&gt;</code>. eu tincidunt elit placerat. phasellus laoreet vitae mi at hendrerit.
+                                cras in massa ac mi sodales vestibulum. etiam convallis lectus vitae ligula fermentum, et
+                                rutrum odio tincidunt.</p>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td class="text-center">
+                                                <i class="fa fa-trash"></i>
+                                            </td>
+                                            <td>id</td>
+                                            <td>pretium</td>
+                                            <td>bytes</td>
+                                            <td>duis</td>
+                                            <td>urna neque</td>
+                                            <td>phasellus</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <div class="checkbox margin-t-0">
+                                                    <input id="checkbox1" type="checkbox">
+                                                    <label for="checkbox1"></label>
+                                                </div>
+                                            </td>
+                                            <td>#
+                                                <b>9652</b>
+                                            </td>
+                                            <td>lorem ipsum dolor sit</td>
+                                            <td>john doe</td>
+                                            <td>12/10/2015</td>
+                                            <td>praesent risus velit, egestas et nulla vitae, venenatis elementum nulla. aliquam
+                                                ligula quam, blandit sed neque vel, aliquet viverra eros.</td>
+                                            <td>credit card</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <div class="checkbox margin-t-0">
+                                                    <input id="checkbox2" type="checkbox">
+                                                    <label for="checkbox2"></label>
+                                                </div>
+                                            </td>
+                                            <td>#
+                                                <b>9652</b>
+                                            </td>
+                                            <td>lorem ipsum dolor sit</td>
+                                            <td>john doe</td>
+                                            <td>12/10/2015</td>
+                                            <td>praesent risus velit, egestas et nulla vitae, venenatis elementum nulla. aliquam
+                                                ligula quam, blandit sed neque vel, aliquet viverra eros.</td>
+                                            <td>credit card</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <div class="checkbox margin-t-0">
+                                                    <input id="checkbox3" type="checkbox">
+                                                    <label for="checkbox3"></label>
+                                                </div>
+                                            </td>
+                                            <td>#
+                                                <b>9652</b>
+                                            </td>
+                                            <td>lorem ipsum dolor sit</td>
+                                            <td>john doe</td>
+                                            <td>12/10/2015</td>
+                                            <td>praesent risus velit, egestas et nulla vitae, venenatis elementum nulla. aliquam
+                                                ligula quam, blandit sed neque vel, aliquet viverra eros.</td>
+                                            <td>credit card</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <div class="checkbox margin-t-0">
+                                                    <input id="checkbox4" type="checkbox">
+                                                    <label for="checkbox4"></label>
+                                                </div>
+                                            </td>
+                                            <td>#
+                                                <b>9652</b>
+                                            </td>
+                                            <td>lorem ipsum dolor sit</td>
+                                            <td>john doe</td>
+                                            <td>12/10/2015</td>
+                                            <td>praesent risus velit, egestas et nulla vitae, venenatis elementum nulla. aliquam
+                                                ligula quam, blandit sed neque vel, aliquet viverra eros.</td>
+                                            <td>credit card</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <div class="checkbox margin-t-0">
+                                                    <input id="checkbox5" type="checkbox">
+                                                    <label for="checkbox5"></label>
+                                                </div>
+                                            </td>
+                                            <td>#
+                                                <b>9652</b>
+                                            </td>
+                                            <td>lorem ipsum dolor sit</td>
+                                            <td>john doe</td>
+                                            <td>12/10/2015</td>
+                                            <td>praesent risus velit, egestas et nulla vitae, venenatis elementum nulla. aliquam
+                                                ligula quam, blandit sed neque vel, aliquet viverra eros.</td>
+                                            <td>credit card</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="method-example">
+                        <div class="method-example-part">
+                            <h5>HTTP status code summary</h5>
+                            <div class="table">
+                                <table class="table-container">
+                                    <colgroup>
+                                        <col class="col-xs-3">
+                                        <col class="col-xs-9">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th class="table-row-property">200 - ok</th>
+                                            <td class="table-row-definition">vivamus rhoncus dui vitae eros tristique cursus.</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-row-property">400 - bad request</th>
+                                            <td class="table-row-definition">vivamus rhoncus dui vitae eros tristique cursus, vivamus rhoncus dui vitae eros.</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-row-property">401 - unauthorized</th>
+                                            <td class="table-row-definition">vivamus rhoncus dui vitae eros tristique cursus.</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-row-property">402 - request failed</th>
+                                            <td class="table-row-definition">vivamus rhoncus dui vitae eros tristique cursus.</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-row-property">404 - not found</th>
+                                            <td class="table-row-definition">vivamus rhoncus dui vitae eros tristique cursus.</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-row-property">409 - conflict</th>
+                                            <td class="table-row-definition">vivamus rhoncus dui vitae eros tristique cursus (dui vitae eros tristique cursus).</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-row-property">429 - too many requests</th>
+                                            <td class="table-row-definition">vivamus rhoncus dui vitae eros tristique cursus vivamus rhoncus dui vitae eros
+                                                tristique.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="table-row-property">500, 502, 503, 504 - server errors</th>
+                                            <td class="table-row-definition">vivamus rhoncus dui vitae eros tristique cursus (vivamus rhoncus)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="documenter-6" class="method">
+                <div class="method-area">
+                    <div class="method-copy">
+                        <div class="method-copy-padding">
+                            <h3 id="handling-errors">Core resources</h3>
+                            <p>
+                                See below the core Blockfreight resources, you will use them to create, sign, broadcast and/or query a transaction. 
+                            </p>
+                            <p>
+                                Remember that the base url is:
+                                <code class=" language-undefined">http://localhost:8080/bftx-api</code>. You will use it for all the resources.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="documenter-6-1" class="method">
+                <div class="method-area">
+                    <div class="method-copy">
+                        <div class="method-copy-padding">
+                            <h3>Create a transaction.</h3>
+
+                            <h5>Route:
+                                <code class=" language-undefined">http://localhost:8080/bftx-api</code>
+                            </h5>
+                            <h5>Method:
+                                <code class=" language-undefined">POST</code>
+                            </h5>
+                            <h5>Request Structure:</h5>
+                            <code class=" language-undefined">
+                                {
+                                <br/> &nbsp; "query": "mutation{constructBFTX(#BLOCKFREIGHT_TRANSACTION_ATTRIBUTES){ #BLOCKFREIGHT_TRANSACTION_ATTRIBUTES_THAT_MUST_BE_RETURNED
+                                }}"
+                                <br/> }
+                                <br/>
+                            </code>
+                            <h5>Description:</h5>
+                            <p>
+                                This resource is responsible for creating a local transaction with the info sent inside the
+                                <code
+                                    class=" language-undefined">
+                                    constructBFTX()
+                                    </code>
+                                and the return depends on the structure that is passed in the request.
+                            </p>
+                            <h5>Attributes:</h5>
+                            <p>
+                                See below the Blockfreight Transaction Attributes:
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-exampled">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Data Type</td>
+                                            <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Shipper</td>
+                                            <td>String</td>
+                                            <td>Shipper</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BolNum</td>
+                                            <td>String</td>
+                                            <td>BolNum</td>
+                                        </tr>
+                                        <tr>
+                                            <td>RefNum</td>
+                                            <td>String</td>
+                                            <td>RefNum</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Consignee</td>
+                                            <td>String</td>
+                                            <td>Consignee</td>
+                                        </tr>
+                                        <tr>
+                                            <td>HouseBill</td>
+                                            <td>String</td>
+                                            <td>HouseBill</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vessel</td>
+                                            <td>String</td>
+                                            <td>Vessel</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Packages</td>
+                                            <td>String</td>
+                                            <td>Packages</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PackType</td>
+                                            <td>String</td>
+                                            <td>PackType</td>
+                                        </tr>
+                                        <tr>
+                                            <td>INCOTerms</td>
+                                            <td>String</td>
+                                            <td>INCOTerms</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PortOfLoading</td>
+                                            <td>String</td>
+                                            <td>PortOfLoading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PortOfDischarge</td>
+                                            <td>String</td>
+                                            <td>PortOfDischarge</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Destination</td>
+                                            <td>String</td>
+                                            <td>Destination</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MarksAndNumbers</td>
+                                            <td>String</td>
+                                            <td>MarksAndNumbers</td>
+                                        </tr>
+                                        <tr>
+                                            <td>UnitOfWeight</td>
+                                            <td>String</td>
+                                            <td>UnitOfWeight</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DeliverAgent</td>
+                                            <td>String</td>
+                                            <td>DeliverAgent</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ReceiveAgent</td>
+                                            <td>String</td>
+                                            <td>ReceiveAgent</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Container</td>
+                                            <td>String</td>
+                                            <td>Container</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ContainerSeal</td>
+                                            <td>String</td>
+                                            <td>ContainerSeal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ContainerMode</td>
+                                            <td>String</td>
+                                            <td>ContainerMode</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ContainerType</td>
+                                            <td>String</td>
+                                            <td>ContainerType</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Volume</td>
+                                            <td>String</td>
+                                            <td>Volume</td>
+                                        </tr>
+                                        <tr>
+                                            <td>UnitOfVolume</td>
+                                            <td>String</td>
+                                            <td>UnitOfVolume</td>
+                                        </tr>
+                                        <tr>
+                                            <td>NotifyAddress</td>
+                                            <td>String</td>
+                                            <td>NotifyAddress</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DescOfGoods</td>
+                                            <td>String</td>
+                                            <td>DescOfGoods</td>
+                                        </tr>
+                                        <tr>
+                                            <td>GrossWeight</td>
+                                            <td>String</td>
+                                            <td>GrossWeight</td>
+                                        </tr>
+                                        <tr>
+                                            <td>FreightPayableAmt</td>
+                                            <td>String</td>
+                                            <td>FreightPayableAmt</td>
+                                        </tr>
+                                        <tr>
+                                            <td>FreightAdvAmt</td>
+                                            <td>String</td>
+                                            <td>FreightAdvAmt</td>
+                                        </tr>
+                                        <tr>
+                                            <td>GeneralInstructions</td>
+                                            <td>String</td>
+                                            <td>GeneralInstructions</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DateShipped</td>
+                                            <td>String</td>
+                                            <td>DateShipped</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DateShipped</td>
+                                            <td>String</td>
+                                            <td>DateShipped</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="method-example">
+                        <div class="code-curl code-div active-code">
+                            <div class="method-example-part">
+                                <pre class=" language-ruby">curl -d '{ "query": "mutation{constructBFTX(Properties:{ DescOfGoods:\"This is a test description.\" }){ Id }}" }' -X POST -H "Content-Type: application/json" http://localhost:8080/bftx-api</pre>
+                            </div>
+                        </div>
+                        <div class="code-node code-div">
+                            <div class="method-example-part">
+                               <div class=" language-undefined">
+                                  <pre class=" language-javascript">
+                                    <code class=" language-javascript">
+const axios = require('axios')
+
+function createBlockfreightTransaction() {
+    axios.post("http://localhost:8080/bftx-api", { "query": "mutation{constructBFTX(Properties:{ DescOfGoods:\"This is a test description.\" Shipper:\"shipper\" }){ Id }}" })
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+module.exports = createBlockfreightTransaction()
+
+
+/* Response: 
+{ data:
+    { constructBFTX:
+       { Id: '#BLOCKFREIGHT_TRANSACTION_ID' } 
+    } 
+}*/
+                                  </code>
+                                </pre>
+                               </div>
+                            </div>
+                         </div>
+                         <div class="code-go code-div">
+                            <div class="method-example-part">
+                               <div class=" language-undefined">
+                                  <pre class=" language-go">
+                                    <code class=" language-go">
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    res, err := http.PostForm("http://localhost:8080/bftx-api",
+        url.Values{"query": {"mutation{constructBFTX(Properties:{ DescOfGoods:\"This is a test description.\" Shipper:\"shipper\" }){ Id }}"}})
+
+    if err != nil {
+        log.Fatal(err)
+    }
+    bftxResult, err := ioutil.ReadAll(res.Body)
+    res.Body.Close()
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("%s", bftxResult)
+}
+                                        
+
+
+/* Response: 
+{ data:
+    { constructBFTX:
+       { Id: '#BLOCKFREIGHT_TRANSACTION_ID' } 
+    } 
+}*/
+                                  </code>
+                                </pre>
+                               </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </section>
+            <section id="documenter-6-2" class="method">
+                <div class="method-area">
+                    <div class="method-copy">
+                        <div class="method-copy-padding">
+                            <h3>Sign a transaction.</h3>
+
+                            <h5>Route:
+                                <code class=" language-undefined">http://localhost:8080/bftx-api</code>
+                            </h5>
+                            <h5>Method:
+                                <code class=" language-undefined">POST</code>
+                            </h5>
+                            <h5>Request Structure:</h5>
+                            <code class=" language-undefined">
+                                {
+                                <br/> &nbsp; "query": "mutation{tx: signBFTX(Id:#BLOCKFREIGHT_TRANSACTION_ID){ #BLOCKFREIGHT_TRANSACTION_ATTRIBUTES_THAT_MUST_BE_RETURNED }}"
+                                <br/> }
+                                <br/>
+                            </code>
+                            <h5>Description:</h5>
+                            <p>
+                                This resource is responsible for signing a local transaction based on the given <code class=" language-undefined">Blockfreight Transaction ID</code> sent inside the
+                                <code
+                                    class=" language-undefined">
+                                    signBFTX()
+                                    </code>
+                                and the return depends on the structure that is passed in the request.
+                            </p>
+                            <h5>Attributes:</h5>
+                            <p>
+                                See below the Blockfreight Transaction Attributes:
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-exampled">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Data Type</td>
+                                            <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Shipper</td>
+                                            <td>String</td>
+                                            <td>Shipper</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BolNum</td>
+                                            <td>String</td>
+                                            <td>BolNum</td>
+                                        </tr>
+                                        <tr>
+                                            <td>RefNum</td>
+                                            <td>String</td>
+                                            <td>RefNum</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Consignee</td>
+                                            <td>String</td>
+                                            <td>Consignee</td>
+                                        </tr>
+                                        <tr>
+                                            <td>HouseBill</td>
+                                            <td>String</td>
+                                            <td>HouseBill</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vessel</td>
+                                            <td>String</td>
+                                            <td>Vessel</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Packages</td>
+                                            <td>String</td>
+                                            <td>Packages</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PackType</td>
+                                            <td>String</td>
+                                            <td>PackType</td>
+                                        </tr>
+                                        <tr>
+                                            <td>INCOTerms</td>
+                                            <td>String</td>
+                                            <td>INCOTerms</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PortOfLoading</td>
+                                            <td>String</td>
+                                            <td>PortOfLoading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PortOfDischarge</td>
+                                            <td>String</td>
+                                            <td>PortOfDischarge</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Destination</td>
+                                            <td>String</td>
+                                            <td>Destination</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MarksAndNumbers</td>
+                                            <td>String</td>
+                                            <td>MarksAndNumbers</td>
+                                        </tr>
+                                        <tr>
+                                            <td>UnitOfWeight</td>
+                                            <td>String</td>
+                                            <td>UnitOfWeight</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DeliverAgent</td>
+                                            <td>String</td>
+                                            <td>DeliverAgent</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ReceiveAgent</td>
+                                            <td>String</td>
+                                            <td>ReceiveAgent</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Container</td>
+                                            <td>String</td>
+                                            <td>Container</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ContainerSeal</td>
+                                            <td>String</td>
+                                            <td>ContainerSeal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ContainerMode</td>
+                                            <td>String</td>
+                                            <td>ContainerMode</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ContainerType</td>
+                                            <td>String</td>
+                                            <td>ContainerType</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Volume</td>
+                                            <td>String</td>
+                                            <td>Volume</td>
+                                        </tr>
+                                        <tr>
+                                            <td>UnitOfVolume</td>
+                                            <td>String</td>
+                                            <td>UnitOfVolume</td>
+                                        </tr>
+                                        <tr>
+                                            <td>NotifyAddress</td>
+                                            <td>String</td>
+                                            <td>NotifyAddress</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DescOfGoods</td>
+                                            <td>String</td>
+                                            <td>DescOfGoods</td>
+                                        </tr>
+                                        <tr>
+                                            <td>GrossWeight</td>
+                                            <td>String</td>
+                                            <td>GrossWeight</td>
+                                        </tr>
+                                        <tr>
+                                            <td>FreightPayableAmt</td>
+                                            <td>String</td>
+                                            <td>FreightPayableAmt</td>
+                                        </tr>
+                                        <tr>
+                                            <td>FreightAdvAmt</td>
+                                            <td>String</td>
+                                            <td>FreightAdvAmt</td>
+                                        </tr>
+                                        <tr>
+                                            <td>GeneralInstructions</td>
+                                            <td>String</td>
+                                            <td>GeneralInstructions</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DateShipped</td>
+                                            <td>String</td>
+                                            <td>DateShipped</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DateShipped</td>
+                                            <td>String</td>
+                                            <td>DateShipped</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="method-example">
+                            <div class="code-curl code-div active-code">
+                                <div class="method-example-part">
+                                    <pre class=" language-ruby">curl -d '{ "query": "mutation{tx:signBFTX(Id:\"#BLOCKFREIGHT_TRANSACTION_ID\"){ Id }}" }' -X POST -H "Content-Type: application/json" http://localhost:8080/bftx-api</pre>
+                                </div>
+                            </div>
+                            <div class="code-node code-div">
+                                    <div class="method-example-part">
+                                       <div class=" language-undefined">
+                                          <pre class=" language-javascript">
+                                            <code class=" language-javascript">
+const axios = require('axios')
+        
+function signBlockfreightTransaction() {
+    axios.post("http://localhost:8080/bftx-api", { "query": "mutation{signBFTX(Id:\"#BLOCKFREIGHT_TRANSACTION_ID\"){ Id }}" })
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+        
+module.exports = signBlockfreightTransaction()
+
+/* Response: 
+{ data:
+    { signBFTX:
+       { Id: '#BLOCKFREIGHT_TRANSACTION_ID' } 
+    } 
+}*/
+                                          </code>
+                                        </pre>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="code-go code-div">
+                                    <div class="method-example-part">
+                                       <div class=" language-undefined">
+                                          <pre class=" language-go">
+                                            <code class=" language-go">
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    res, err := http.PostForm("http://localhost:8080/bftx-api",
+        url.Values{"query": {"mutation{signBFTX(Id: \"#BLOCKFREIGHT_TRANSACTION_ID\"){ Id }}"}})
+
+    if err != nil {
+        log.Fatal(err)
+    }
+    bftxResult, err := ioutil.ReadAll(res.Body)
+    res.Body.Close()
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("%s", bftxResult)
+}
+
+/* Response: 
+{ data:
+    { signBFTX:
+        { Id: '#BLOCKFREIGHT_TRANSACTION_ID' } 
+    } 
+}*/
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="documenter-6-3" class="method">
+                <div class="method-area">
+                    <div class="method-copy">
+                        <div class="method-copy-padding">
+                            <h3>Broadcast a transaction.</h3>
+
+                            <h5>Route:
+                                <code class=" language-undefined">http://localhost:8080/bftx-api</code>
+                            </h5>
+                            <h5>Method:
+                                <code class=" language-undefined">POST</code>
+                            </h5>
+                            <h5>Request Structure:</h5>
+                            <code class=" language-undefined">
+                                {
+                                <br/> &nbsp; "query": "mutation{tx: broadcastBFTX(Id:#BLOCKFREIGHT_TRANSACTION_ID){ #BLOCKFREIGHT_TRANSACTION_ATTRIBUTES_THAT_MUST_BE_RETURNED }}"
+                                <br/> }
+                                <br/>
+                            </code>
+                            <h5>Description:</h5>
+                            <p>
+                                This resource is responsible for broadcasting a local transaction to the Blockfreight Blockchain based on the given <code class=" language-undefined">Blockfreight Transaction ID</code> sent inside the
+                                <code
+                                    class=" language-undefined">
+                                    broadcastBFTX()
+                                    </code>
+                                and the return depends on the structure that is passed in the request.
+                            </p>
+                            <h5>Attributes:</h5>
+                            <p>
+                                See below the Blockfreight Transaction Attributes:
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-exampled">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Data Type</td>
+                                            <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Shipper</td>
+                                            <td>String</td>
+                                            <td>Shipper</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BolNum</td>
+                                            <td>String</td>
+                                            <td>BolNum</td>
+                                        </tr>
+                                        <tr>
+                                            <td>RefNum</td>
+                                            <td>String</td>
+                                            <td>RefNum</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Consignee</td>
+                                            <td>String</td>
+                                            <td>Consignee</td>
+                                        </tr>
+                                        <tr>
+                                            <td>HouseBill</td>
+                                            <td>String</td>
+                                            <td>HouseBill</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vessel</td>
+                                            <td>String</td>
+                                            <td>Vessel</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Packages</td>
+                                            <td>String</td>
+                                            <td>Packages</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PackType</td>
+                                            <td>String</td>
+                                            <td>PackType</td>
+                                        </tr>
+                                        <tr>
+                                            <td>INCOTerms</td>
+                                            <td>String</td>
+                                            <td>INCOTerms</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PortOfLoading</td>
+                                            <td>String</td>
+                                            <td>PortOfLoading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PortOfDischarge</td>
+                                            <td>String</td>
+                                            <td>PortOfDischarge</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Destination</td>
+                                            <td>String</td>
+                                            <td>Destination</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MarksAndNumbers</td>
+                                            <td>String</td>
+                                            <td>MarksAndNumbers</td>
+                                        </tr>
+                                        <tr>
+                                            <td>UnitOfWeight</td>
+                                            <td>String</td>
+                                            <td>UnitOfWeight</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DeliverAgent</td>
+                                            <td>String</td>
+                                            <td>DeliverAgent</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ReceiveAgent</td>
+                                            <td>String</td>
+                                            <td>ReceiveAgent</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Container</td>
+                                            <td>String</td>
+                                            <td>Container</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ContainerSeal</td>
+                                            <td>String</td>
+                                            <td>ContainerSeal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ContainerMode</td>
+                                            <td>String</td>
+                                            <td>ContainerMode</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ContainerType</td>
+                                            <td>String</td>
+                                            <td>ContainerType</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Volume</td>
+                                            <td>String</td>
+                                            <td>Volume</td>
+                                        </tr>
+                                        <tr>
+                                            <td>UnitOfVolume</td>
+                                            <td>String</td>
+                                            <td>UnitOfVolume</td>
+                                        </tr>
+                                        <tr>
+                                            <td>NotifyAddress</td>
+                                            <td>String</td>
+                                            <td>NotifyAddress</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DescOfGoods</td>
+                                            <td>String</td>
+                                            <td>DescOfGoods</td>
+                                        </tr>
+                                        <tr>
+                                            <td>GrossWeight</td>
+                                            <td>String</td>
+                                            <td>GrossWeight</td>
+                                        </tr>
+                                        <tr>
+                                            <td>FreightPayableAmt</td>
+                                            <td>String</td>
+                                            <td>FreightPayableAmt</td>
+                                        </tr>
+                                        <tr>
+                                            <td>FreightAdvAmt</td>
+                                            <td>String</td>
+                                            <td>FreightAdvAmt</td>
+                                        </tr>
+                                        <tr>
+                                            <td>GeneralInstructions</td>
+                                            <td>String</td>
+                                            <td>GeneralInstructions</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DateShipped</td>
+                                            <td>String</td>
+                                            <td>DateShipped</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DateShipped</td>
+                                            <td>String</td>
+                                            <td>DateShipped</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="method-example">
+                        <div class="code-curl code-div active-code">
+                            <div class="method-example-part">
+                                <pre class=" language-ruby">curl -d '{ "query": "mutation{tx: broadcastBFTX(Id:\"#BLOCKFREIGHT_TRANSACTION_ID\"){Id, Properties{ DescOfGoods } }}" }' -X POST -H "Content-Type: application/json" http://localhost:8080/bftx-api</pre>
+                            </div>
+                        </div>
+                        <div class="code-node code-div">
+                                <div class="method-example-part">
+                                   <div class=" language-undefined">
+                                      <pre class=" language-javascript">
+                                        <code class=" language-javascript">
+const axios = require('axios')
+
+function broadcastBlockfreightTransaction() {
+    axios.post("http://localhost:8080/bftx-api", { "query": "mutation{broadcastBFTX(Id:\"#BLOCKFREIGHT_TRANSACTION_ID\"){ Id, Properties{ DescOfGoods } }}" })
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+module.exports = broadcastBlockfreightTransaction()
+
+/* Response: 
+{ data:
+    { broadcastBFTX:
+       { Id: '#BLOCKFREIGHT_TRANSACTION_ID', Properties: [Object] } 
+    } 
+}
+*/
+                                      </code>
+                                    </pre>
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="code-go code-div">
+                                <div class="method-example-part">
+                                   <div class=" language-undefined">
+                                      <pre class=" language-go">
+                                        <code class=" language-go">
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    res, err := http.PostForm("http://localhost:8080/bftx-api",
+        url.Values{"query": {"mutation{broadcastBFTX(Id: \"#BLOCKFREIGHT_TRANSACTION_ID\"){ Id Properties{DescOfGoods} }}"}})
+
+    if err != nil {
+        log.Fatal(err)
+    }
+    bftxResult, err := ioutil.ReadAll(res.Body)
+    res.Body.Close()
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("%s", bftxResult)
+}
+                                            
+
+/* Response: 
+{
+    "data":{
+        "broadcastBFTX":{
+            "Id":"#BLOCKFREIGHT_TRANSACTION_ID",
+            "Properties":{
+                "DescOfGoods":"This is a test description."
+            }
+        }
+    }
+}
+*/
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </section>
+            <section id="documenter-6-4" class="method">
+                <div class="method-area">
+                    <div class="method-copy">
+                        <div class="method-copy-padding">
+                            <h3>Query a transaction.</h3>
+
+                            <h5>Route:
+                                <code class=" language-undefined">http://localhost:12345/bftx-api?query={tx: queryTransaction(id: #BLOCKFREIGHT_TRANSACTION_ID){ #BLOCKFREIGHT_TRANSACTION_ATTRIBUTES_THAT_MUST_BE_RETURNED }</code>
+                            </h5>
+                            <h5>Method:
+                                <code class=" language-undefined">GET</code>
+                            </h5>
+                            <h5>Description:</h5>
+                            <p>
+                                This resource is responsible for querying a transaction in the Blockfreight Blockchain based on the given <code class=" language-undefined">Blockfreight Transaction ID</code> sent inside the
+                                <code
+                                    class=" language-undefined">
+                                    queryTransaction()
+                                    </code>
+                                and the return depends on the structure that is passed in the request.
+                            </p>
+                            <h5>Attributes:</h5>
+                            <p>
+                                See below the Blockfreight Transaction Attributes:
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-exampled">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Data Type</td>
+                                            <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Shipper</td>
+                                            <td>String</td>
+                                            <td>Shipper</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BolNum</td>
+                                            <td>String</td>
+                                            <td>BolNum</td>
+                                        </tr>
+                                        <tr>
+                                            <td>RefNum</td>
+                                            <td>String</td>
+                                            <td>RefNum</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Consignee</td>
+                                            <td>String</td>
+                                            <td>Consignee</td>
+                                        </tr>
+                                        <tr>
+                                            <td>HouseBill</td>
+                                            <td>String</td>
+                                            <td>HouseBill</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vessel</td>
+                                            <td>String</td>
+                                            <td>Vessel</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Packages</td>
+                                            <td>String</td>
+                                            <td>Packages</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PackType</td>
+                                            <td>String</td>
+                                            <td>PackType</td>
+                                        </tr>
+                                        <tr>
+                                            <td>INCOTerms</td>
+                                            <td>String</td>
+                                            <td>INCOTerms</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PortOfLoading</td>
+                                            <td>String</td>
+                                            <td>PortOfLoading</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PortOfDischarge</td>
+                                            <td>String</td>
+                                            <td>PortOfDischarge</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Destination</td>
+                                            <td>String</td>
+                                            <td>Destination</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MarksAndNumbers</td>
+                                            <td>String</td>
+                                            <td>MarksAndNumbers</td>
+                                        </tr>
+                                        <tr>
+                                            <td>UnitOfWeight</td>
+                                            <td>String</td>
+                                            <td>UnitOfWeight</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DeliverAgent</td>
+                                            <td>String</td>
+                                            <td>DeliverAgent</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ReceiveAgent</td>
+                                            <td>String</td>
+                                            <td>ReceiveAgent</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Container</td>
+                                            <td>String</td>
+                                            <td>Container</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ContainerSeal</td>
+                                            <td>String</td>
+                                            <td>ContainerSeal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ContainerMode</td>
+                                            <td>String</td>
+                                            <td>ContainerMode</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ContainerType</td>
+                                            <td>String</td>
+                                            <td>ContainerType</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Volume</td>
+                                            <td>String</td>
+                                            <td>Volume</td>
+                                        </tr>
+                                        <tr>
+                                            <td>UnitOfVolume</td>
+                                            <td>String</td>
+                                            <td>UnitOfVolume</td>
+                                        </tr>
+                                        <tr>
+                                            <td>NotifyAddress</td>
+                                            <td>String</td>
+                                            <td>NotifyAddress</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DescOfGoods</td>
+                                            <td>String</td>
+                                            <td>DescOfGoods</td>
+                                        </tr>
+                                        <tr>
+                                            <td>GrossWeight</td>
+                                            <td>String</td>
+                                            <td>GrossWeight</td>
+                                        </tr>
+                                        <tr>
+                                            <td>FreightPayableAmt</td>
+                                            <td>String</td>
+                                            <td>FreightPayableAmt</td>
+                                        </tr>
+                                        <tr>
+                                            <td>FreightAdvAmt</td>
+                                            <td>String</td>
+                                            <td>FreightAdvAmt</td>
+                                        </tr>
+                                        <tr>
+                                            <td>GeneralInstructions</td>
+                                            <td>String</td>
+                                            <td>GeneralInstructions</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DateShipped</td>
+                                            <td>String</td>
+                                            <td>DateShipped</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DateShipped</td>
+                                            <td>String</td>
+                                            <td>DateShipped</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="method-example">
+                        <div class="code-curl code-div active-code">
+                            <div class="method-example-part">
+                                <pre class=" language-ruby">curl -g 'http://localhost:8080/bftx-api' -d 'query={tx: queryTransaction(Id:"#BLOCKFREIGHT_TRANSACTION_ID"){Id Properties{DescOfGoods}}}' </pre>
+                            </div>
+                        </div>
+                        <div class="code-node code-div">
+                                <div class="method-example-part">
+                                   <div class=" language-undefined">
+                                      <pre class=" language-javascript">
+                                        <code class=" language-javascript">
+const axios = require('axios')
+
+function getBlockfreightTransaction() {
+    axios.get(`http://localhost:8080/bftx-api?query={tx:queryTransaction(id:"#BLOCKFREIGHT_TRANSACTION_ID"){Id Properties{DescOfGoods}}}`)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+module.exports = getBlockfreightTransaction()
+
+/* Response:
+{ 
+    "data":{
+    "tx":[{
+            "Id":"#BLOCKFREIGHT_TRANSACTION_ID",
+            "Properties":{
+                "DescOfGoods":"This is a test description."
+            }
+        }]
+    }
+}
+*/
+                                      </code>
+                                    </pre>
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="code-go code-div">
+                                <div class="method-example-part">
+                                   <div class=" language-undefined">
+                                      <pre class=" language-go">
+                                        <code class=" language-go">
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
+    "os"
+)
+
+func main() {
+    client := &http.Client{}
+
+    req, err := http.NewRequest("GET", "http://localhost:8080/bftx-api", nil)
+    if err != nil {
+        log.Print(err)
+        os.Exit(1)
+    }
+
+    q := req.URL.Query()
+    q.Add("query", `{tx: queryTransaction(id:"#BLOCKFREIGHT_TRANSACTION_ID"){Id Properties{DescOfGoods}}}`)
+    req.URL.RawQuery = q.Encode()
+
+    res, err := client.Do(req)
+
+    if err != nil {
+        log.Fatal(err)
+    }
+    bftxResult, err := ioutil.ReadAll(res.Body)
+    res.Body.Close()
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("%s", bftxResult)
+}
+                                            
+
+/* Response: 
+{
+    "data":{
+        "tx":[{
+            "Id":"#BLOCKFREIGHT_TRANSACTION_ID",
+            "Properties":{
+                "DescOfGoods":"This is a test description."
+            }
+        }]
+    }
+}
+*/
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- blockquotes mobile menu -->
+    <div id="mobile-menu">
+        <div class="mobile-menu-inner">
+            <ul>
+                <li>
+                    <div class="mm-search">
+                        <form id="search1" name="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control simple" placeholder="search ..." name="srch-term" id="srch-term">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <a href="#documenter-1">page links</a>
+                    <ul>
+                        <li>
+                            <a href="#documenter-1">api reference</a>
+                        </li>
+                        <li>
+                            <a href="#documenter-2">authentication </a>
+                        </li>
+                        <li>
+                            <a href="#documenter-3">errors </a>
+                            <ul>
+                                <li>
+                                    <a href="#documenter-3-1">handling errors</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#documenter-4">expanding objects</a>
+                        </li>
+                        <li>
+                            <a href="#documenter-5">idempotent requests</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="top-links">
+                <ul class="links">
+                    <li>
+                        <a title="docs" href="javascript:void(0)">docs</a>
+                    </li>
+                    <li>
+                        <a title="api reference" href="javascript:void(0)">api reference</a>
+                    </li>
+                    <li>
+                        <a title="support" href="javascript:void(0)">support</a>
+                    </li>
+                    <li>
+                        <a title="dashboard" href="javascript:void(0)">dashboard</a>
+                    </li>
+                    <li class="last">
+                        <a title="login" href="javascript:void(0)">login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="js/prism.js"></script>
+    <script src="js/jquery.1.6.4.js"></script>
+    <script src="js/jquery.scrollto-1.4.2-min.js"></script>
+    <script src="js/jquery.easing.js"></script>
+    <script>
+        document.createelement('section');
+        var duration = 500,
+            easing = 'swing';
+    </script>
+    <script src="js/slides.min.jquery.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/jquery.mobile-menu.min.js"></script>
+    <script>
+        scrollload("scrollholder", "scroll", false);
+    </script>
+</body>
+
+</html>

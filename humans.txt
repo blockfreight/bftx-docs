@@ -1,0 +1,33 @@
+humans.txt
+
+/* TEAM */
+
+Name: Blockfreight™ API Documentation
+Street: 535 Mission Street 14th floor
+ZIP: 94105 
+City: San Francisco
+Country: United States of America
+Web: https://blockfreight.io
+Twitter: @blockfreight
+                            
+Location: San Francisco, Shanghai, Melbourne, HK, Tokyo, Zug 
+
+/* THANKS */
+
+Project Sponsor(s):
+
+- Blockfreight, Inc., USA
+
+- Julian Smith
+- Founder, President & CEO
+- Blockfreight, Inc.
+- <julian.smith@blockfreight.com>
+                            
+/* SITE */
+                   
+First published: 2018/SEP/20
+Standards: HTML5, CSS3      
+Components: Bootstrap 4
+                 
+Software: Adobe CC (Photoshop/Illustrator)
+Sublime Text Version 3.0
